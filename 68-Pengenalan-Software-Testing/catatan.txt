@@ -1,0 +1,29 @@
+Pengenalan Software Testing
+1. Software testing adalah salah satu disiplin ilmu dalam software engineering
+2. Tujuan utama dari software testing adalah memastikan kualitas kode dan aplikasi kita baik
+artinya minim bug dan kesalahan dari aplikasi yang kita buat
+3. Ilmu untuk software testing sendiri sangatlah luas, pada materi ini kita hanya akan fokus
+ke unit testing
+
+Test Pyramid
+1. UI Test / End to End Test (harus membuat robot untuk menjalankan aplikasi yang dibuat, layaknya user asli)
+2. Service Testing / Integration Testing
+3. Unit Testing
+dalam bentuk segitiga,
+artinya semakin bawah itu makin murah (untuk implementasinya) jadi bisa membuat banyak dan
+semakin ke atas semakin mahal (resource)
+Semakin ke bawah itu cepat eksekusinya
+sedangkan ke atas semakin lambat
+
+karena unit testing itu akan mengetest komponen yang kecil jadinya cepat banget
+
+Contoh High Level Architecture Aplikasi
+
+biasanya untuk cek function dan method yang kita buat
+
+Unit Test
+1. Unit test akan fokus menguji bagian kode program terkecil, biasanya menguji sebuah method
+2. Unit test biasanya dibuat kecil dan cepat, oleh karena itu biasanya kada kode unit test
+lebih banyak dari kode program hasilnya, karena semua skenario (skenario valid/invalid)
+pengujian akan dicoba di unit test
+3. Unit test bisa digunakan sebagai cara untuk meningkatkan kualitas kode program kita
