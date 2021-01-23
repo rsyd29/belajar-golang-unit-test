@@ -1,0 +1,13 @@
+Sebelum belajar Go-Lang Unit Test, ini bukan pemula yang baru belajar golang
+
+jadi harus pelajari 2 materi sebelumnya yaitu
+1. Go-Lang Dasar (https://github.com/rsyd29/belajar-golang-dasar.git)
+2. Go-Lang Modules (https://github.com/rsyd29/belajar-golang-modules.git)
+
+Di section ini akan membahas
+1. Pengenalan software testing
+2. Testing package (bawaan dari go-lang)
+3. Unit test
+4. Assertion
+5. Mock, dan
+6. Benchmark
