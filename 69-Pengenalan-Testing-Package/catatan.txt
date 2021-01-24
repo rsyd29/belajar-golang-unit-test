@@ -1,0 +1,22 @@
+Pengenalan Testing Package
+1. Di bahasa pemrograman lain, biasanya untuk implementasi unit test, kita butuh library
+atau framework khusus untuk unit test
+2. Berbeda dengan Go-Lang, di Go-Lang sudah untuk unit test sudah disediakan sebuah package
+khusus bernama testing
+3. Selain itu untuk menjalankan unit test, di Go-Lang juga sudah disediakan perintah nya
+4. Hal ini membuat implementasi unit testing di golang sangat mudah dibanding dengan bahasa
+pemrograman yang lain
+5. Dokumentasinya adalah https://golang.org/pkg/testing/
+
+testing.T
+1. Go-Lang menyediakan sebuah struct yang bernama testing.T
+2. Struct ini digunakan untuk unit test di Go-Lang
+
+testing.M
+1. testing.M adalah struct yang disediakan Go-Lang untuk mengatur life cycle testing
+2. Materi ini nanti akan kita bahas di chapter Main
+
+testing.B
+1. testing.B adalah struct yang disediakan Go-Lang untuk melakukan benchmarking
+2. Di Go-Lang untuk melakukan benchmark (mengukur kecepatan kode program) pun sudah
+disediakan, sehingga kita tidak perlu menggunakan library atau framework tambahan
