@@ -1,0 +1,59 @@
+Membuat Unit Test
+
+Aturan File Test
+1. Go-Lang memiliki aturan cara membuat file khusus untuk unit test
+jadi tidak bisa sembarangan untuk membuat unit test file nya
+2. Untuk membuat file unit test, kita harus menggunakan akhiran _test
+awalannya terserah apapun itu, tapi akhirannya harus _test
+3. Jadi misal kita membuat file hello_world.go, artinya untuk membuat unit testnya, kita
+harus membuat file hello_world_test.go
+bagusnya seperti itu kalau sudah membuat file hello_world.go maka file testingnya
+harus hello_world_test.go
+kenapa? biar konsisten saja agar lebih mudah dilihatnya
+
+Aturan Function Unit Test
+1. Selain aturan nama file, di Go-Lang juga sudah diatur untuk nama function unit test
+tidak bisa sembarangan nama functionnya
+2. Nama function untuk unit test harus diawali dengan nama Test
+T nya huruf besar, karena ini case sensitive
+3. Misal jika kita ingin mengetest function HelloWorld, maka kita akan membuat function
+unit test dengan nama TestHelloWorld (agar konsisten aja)
+Intinya ada awalan Test dan setelahnya bebas apapun namanya yang memudahkan kita dan programmer lain
+4. Tak ada aturan untuk nama belakang function unit test harus sama dengan nama function
+yang akan di test, yang penting adalah harus diawalin dengan kata Test
+5. Selanjutnya harus memiliki parameter (t *testing.T) dan tidak mengembalikan return value
+harus pake parameter itu, kalau tidak ada berarti itu bukan unit testing, dan tidak boleh
+membuat return value di function Unit Test
+
+Menjalankan Unit Test
+1. Untuk menjalankan unit test kita bisa menggunakan perintah :
+go test
+Ini akan menjalankan semua funtion unit test yang ada pada package yang di jalankan,
+jadi dia akan menjalankan semua file yang memiliki akhiran _test.go
+Kalau keluarannya PASS artinya itu berhasil / sukses
+Ini tidak bisa melihat file apa saja yang akan dieksekusi
+2. Jika kita ingin lihat lebih detail function test apa saja yang sudah di running, kita
+bisa gunakan perintah:
+go test -v
+v (verbose) --> function apa saja yang akan dijalankan unit test nya
+3. Dan jika kita ingin memilih function unit test mana yang ingin di running, kita bisa
+gunakan perintah:
+go test -v -run TestNamaFunction atau go test -v -run=TestNamaFunction
+c/n
+go test -v -run TestHelloWorldRasyid atau go test -v -run=TestHelloWorldRasyid
+
+go test -v -run=TestHelloWorld
+kalau menjalankan perintah di atas maka dia akan run semua nya jadi prefix dari TestHelloWorld
+akan dijalankan
+
+misal kita menjalankan perintah
+go test -v
+pada root file, maka terjadi error 'no Go files'
+
+solusinya?
+Menjalankan semua unit test -> di semua package yang ada pada root file project yang dibuat
+1. Jika kita ingin menjalankan semua unit test dari top folder module nya, kita bisa gunakan
+perintah:
+go test ./...
+hasilnya
+ok  	belajar-golang-unit-test/helper	(cached)
