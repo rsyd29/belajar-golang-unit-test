@@ -1,0 +1,35 @@
+Menggagalkan Unit Test
+1. Menggagalkan unit test menggunakan panic bukanlah hal yang bagus
+Kenapa? karena apabila memiliki beberapa func unit test salah satu unit test itu tidak sesuai
+akan terjadi panic maka program akan error dan berhenti, serta func lainnya tidak akan
+dijalankan karena panic sudah dijalankan artinya programnya error dan berhenti
+2. Go-Lang sendiri sudah menyediakan cara untuk menggagalkan unit test menggunakan
+testing.T
+3. Terdapat function Fail(), FailNow(), Error(), dan Fatal() jika kita ingin menggagalkan
+unit test
+
+Perbedaan t.Fail() dan t.FailNow()
+1. Terdapat dua function untuk menggagalkan unit test, yaitu Fail() dan FailNow(). Lantas
+apa bedanya?
+2. Fail() akan menggagalkan unit test, namun tetap menjalankan eksekusi unit test. Namun
+diakhir ketika selesai, maka unit test tersebut dianggap gagal
+Ketika mengalami Fail() maka dia akan melanjutkan kode program selanjutnya, bukan func test
+lainnya, tapi kode program selanjutnya.
+3. FailNow() akan menggagalkan unit test saat itu juga, tanpa melanjutkan eksekusi unit
+test
+Jadi ketika ketemu func FailNow() maka saat itu juga digagalkan, artinya tidak akan dieksekusi
+lagi kode program selanjutnya.
+
+Perbedaan t.Error(args...) dan t.Fatal(args...)
+1. Selain Fail() dan FailNow(), ada juga Error() dan Fatal()
+2. Error() function lebih seperti melakukan log (print) error, namun setelah melakukan
+log error, dia akan secara otomatis memanggil function Fail(), sehingga mengakibatkan
+unit test dianggap gagal
+3. Namun karena hanya memanggil Fail(), artinya eksekusi unit test akan tetap berjalan
+sampai selesai
+4. Fatal() mirip dengan Error(), hanya saja, setelah melakukan log error, dia akan
+memanggil FailNow(), sehingga mengakibatkan eksekusi unit test berhenti
+
+Lebih disarankan menggunakan Error() ataupun Fatal() dibandingkan dengan
+Fail() dan FailNow() kenapa karena kita bisa menambahkan informasi kenapa unit test kita
+gagal
