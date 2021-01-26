@@ -1,0 +1,27 @@
+Assertion --> Sebuah library cara untuk melakukan suatu pengecekan
+1. Melakukan pengenecekan di unit test secara manual menggunakan if else sangatlah
+menyebalkan
+karena terlalu banyak if else yang kita akan cek seperti struct yang memiliki field yg
+banyak, kita akan kualahan untuk membuat if else untuk field yang banyak tersebut.
+2. Apalagi jika result data yang harus di cek itu banyak
+3. Oleh karena itu, sangat disarankan untuk menggunakan Assertion untuk melakukan
+pengcekan
+4. Sayangnya, Go-Lang tidak menyediakan package untuk assertion, sehingga kita butuh
+menambahkan library untuk melakukan assertion ini, library Testify.
+
+Library Testify
+1. Salah satu library assertion yang paling populer di Go-Lang adalah Testify
+2. Kita bisa menggunakan library ini untuk melakukan assertion terhadap result data
+di unit test
+3. Dokumentasinya adalah https://github.com/stretchr/testify
+4. Kita bisa menambahkannya di Go module kita:
+go get github.com/stretchr/testify
+
+Assert vs Require
+1. Testify menyediakan dua package untuk assertion, yaitu assert dan require
+2. Saat kita menggunakan assert, jika pengecekkan gagal, maka assert akan memanggil
+Fail(), artinya eksekusi unit test akan tetap dilanjutkan
+3. Sedangkan jika kita menggunakan require, jika pengecekkan gagal, maka require akan
+memanggil FailNow(), artinya eksekusi unit test tidak akan dilanjutkan
+
+NOTE: Jadi jangan pakai if else lagi, lebih baik pakai library assertion saja

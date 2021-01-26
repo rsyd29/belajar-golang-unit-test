@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/71-Menggagalkan-Test/latihan-belajar-golang-unit-test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/72-Assertions/latihan-belajar-golang-unit-test" vcs="Git" />
   </component>
 </project>
