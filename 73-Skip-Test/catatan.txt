@@ -1,0 +1,10 @@
+Skip Test (Membatalkan Test -> unit test akan di ignore
+bukan Menggagalkan Test -> Unit Test Menjadi Fail)
+
+Skip Test
+1. Kadang dalam keadaan tertentu, kita ingin membatalkan eksekusi unit test
+contohnya seperti apabila aplikasinya hanya bisa dijalankan di windows, dan apabila
+dijalankan di mac os maka testing tersebut di skip (dibatalkan) aja
+2. Di Go-Lang juga kita bisa membatalkan eksekusi unit test jika kita mau
+3. Untuk membatalkan unit test kita bisa menggunakan function Skip() -> ini ada pada
+struct testing.T
