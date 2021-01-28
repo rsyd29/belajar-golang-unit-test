@@ -1,0 +1,33 @@
+Before dan After Test
+1. Biasanya dalam unit test, kadang kita ingin melakukan sesuatu sebelum dan setelah
+sebuah unit test dieksekusi
+2. Jikalau kode yang kita lakukan sebelum dan setelah selalu sama antar unit test function,
+maka membuat manual di unit test function nya adalah hal yang membosankan dan terlalu
+banyak kode duplikat jadinya
+3. Untungnya di Go-Lang terdapat fitur yang bernama testing.M
+4. Fitur ini bernama Main, dimana digunakan untuk mengatur eksekusi unit test, namun hal
+ini juga bisa kita gunakan untuk melakakun Before dan After di Unit Test
+
+testing.M
+1. Untuk mengatur eksekusi unit test, kita cukup membuat sebuah function bernama TestMain
+dengan parameter testing.M
+Harus function dengan nama TestMain dan memiliki parameter testing.M
+2. Jika terdapat function TestMain tersebut, maka secara otomatis Go-Lang akan mengeksekusi
+function ini tiap kali akan menjalankan unit test di sebuah package
+3. Dengan ini kita bisa mengatur Before dan After unit test sesuai dengan yang kita mau
+4. Ingat, function TestMain itu dieksekusi hanya sekali per Go-Lang package, bukan per
+tiap function unit test
+
+NOTE: Ingat ini hanya berjalan pada 1 package saja, di package lain harus buat lagi
+TestMain
+
+Code:
+func TestMain(m *testing.M) {
+	// before
+	fmt.Println("BEFORE UNIT TEST")
+
+	m.Run() // eksekusi semua unit test
+
+	// after
+	fmt.Println("AFTER UNIT TEST")
+}
