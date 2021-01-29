@@ -1,0 +1,79 @@
+Table Test
+1. Sebelumnya kita sudah belajar tentang sub test
+2. Jika diperhatikan, sebenarnya dengan sub test, kita bisa membuat test secara dinamis
+3. Dan fitur sub test ini, biasa digunakan oleh programmer Go-Lang untuk membuat test
+dengan konsep table test
+4. Table test yaitu dimana kita menyediakan data berupa slice yang berisi parameter dan
+ekspektasi hasil dari unit test
+5. Lalu slice tersebut kita iterasi menggunakan sub test
+
+Permasalahnnya
+func TestSubTest(t *testing.T) {
+	// jadi di sini ada 2 sub test
+	// Sub Test Pertama
+	t.Run("Budiman", func(t *testing.T) {
+		// sub test ini akan melakukan kode program dengan function lain
+		result := HelloWorld("Budiman")
+		require.Equal(t, "Hello Budiman", result, "Result must be 'Hello Budiman'")
+	})
+
+	// Sub Test Kedua
+	t.Run("Rasyid", func(t *testing.T) {
+		// sub test ini akan melakukan kode program dengan function lain
+		result := HelloWorld("Rasyid")
+		require.Equal(t, "Hello Rasyid", result, "Result must be 'Hello Rasyid'")
+	})
+}
+
+dari sub test diatas memiliki dua sub test, apabila ingin membuat sub test lain itu
+harus dicopas lagi jadi banyak sub testnya dan tidak efektif karena dilakukan berulang
+kali
+
+solusinya adalah membuat table test, caranya buat terlebih dahulu slice atau array
+request dan ekspektasinya seperti apa, dan lakukan iterasi setelah itu running
+menggunakan sub test.
+Konsepnya seperti ini
+
+// Code: Table Test
+func TestTableHelloWorld(t *testing.T) {
+	tests := []struct { // slice struct
+		name string
+		request string
+		expected string
+	}{
+		{
+			name: "HelloWorld(Budiman Rasyid)",
+			request: "Budiman Rasyid",
+			expected: "Hello Budiman Rasyid",
+		},
+		{
+			name: "HelloWorld(Zainuddin)",
+			request: "Zainuddin",
+			expected: "Hello Zainuddin",
+		},
+		{
+			name: "HelloWorld(Nuratitin)",
+			request: "Nuratitin",
+			expected: "Hello Nuratitin",
+		},
+		{
+			name: "HelloWorld(Subhan Amin)",
+			request: "Subhan Amin",
+			expected: "Hello Subhan Amin",
+		},
+		// ini kalau ingin menambahkan datanya sama seperti data di atas
+	}
+
+	// Melakukan Iterasi
+	for _, test := range tests {
+		// function sub test
+		t.Run(test.name, func(t *testing.T){
+			result := HelloWorld(test.request)
+			require.Equal(t, test.expected, result)
+		})
+	}
+}
+
+jadi itulah konsep table test, tidak perlu lagi copas untuk membuat function unit test
+atau sub test, jadi kita hanya perlu membuat slice yang isinya list of data dan
+ekspektasinya dan lakukan iterasi dari data yang ada pada slicenya
