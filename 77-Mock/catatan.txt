@@ -1,0 +1,43 @@
+Mock
+1. Mock adalah object yang sudah kita program dengan ekspektasi tertentu sehingga ketika
+dipanggil, dia akan menghasilkan data yang sudah kita program diawal
+2. Mock adalah salah satu teknik dalam unit testing, dimana kita bisa membuat mock
+object dari suatu object yang memang sulit untuk di testing
+3. Misal kita ingin membuat unit test, namun ternyata ada kode program kita yang harus
+memanggil API Call ke third party service. Hal ini sangat suit untuk di test, karena
+unit testing kita harus selalu memanggil third party service, dan belum tentu response
+nya sesuai dengan apa yang kita mau
+4. Pada kasus seperti ini, cocok sekali untuk menggunakan mock object
+
+Testify Mock
+1. Untuk membuat mock object, tidak ada fitur bawaan Go-Lang, namun kita bisa menggunakan
+library testify yang sebelumnya kita gunakan untuk assertion
+2. Testify mendukung pembuatan mock object, sehingga cocok untuk kita gunakan ketika
+ingin membuat mock object
+3. Namun, perlu diperhatikan, jika desain kode program kita jelek, akan sulit untuk
+melakukan mocking, jadi pastikan kita melakukan pembuatan desain kode program kita
+dengan baik (buatlah code yang mudah untuk dilakukan testing)
+4. Mari kita buat contoh kasus
+
+Aplikasi Query ke Database
+1. Kita akan coba contoh kasus dengan membuat contoh aplikasi golang yang melakukan
+query ke database
+2. Dimana ktia akan buat layer Service sebagai business logic, dan layer Repository
+sebagai jembatan ke database
+3. Agar kode kita mudah untuk di test, disarankan agar membuat kontrak berupa Interface
+(Jangan langsung membuat function untuk langsung konek ke database itu tidak disarankan
+karena apa? karena itu susah untuk melakukan mocking. Kalau mau bikin interface terlebih
+dahulu, untuk dijadikan sebagai kontrak)
+
+NOTE: Unit Test itu idealnya tidak running third party apapun, jadi tidak running
+database, web server dan lainnya.
+
+Solusinya adalah dengan membuat mock object
+dokumentasinya ada di https://github.com/stretchr/testify/
+
+Jadi mock object ini untuk membuat testing yang dapat terintegrasi dengan sistem
+yang lain, dari pada merunning sistemnya dan bukan wewenang kita kaya service
+payment gateway, sms gateway yang itu dimana bukan aplikasi buatan kita, jadi
+disarankan untuk membuat mock objectnya.
+
+Jadi ini bisa membantu untuk melakukan implementasi unit testing
