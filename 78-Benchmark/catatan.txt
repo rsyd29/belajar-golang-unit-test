@@ -1,0 +1,34 @@
+Benchmark
+1. Selain unit test, Go-Lang testing package juga mendukung melakukan benchmark
+Jadi bisa dilakukan benchmark dengan menggunakan package testing.
+2. Benchmark adalah mekanisme menghitung kecepatan performa kode aplikasi kita.
+Jadi bukan berarti ketika kita implementasi benchmark itu tidak perlu membuat unit test
+bukan seperti itu, tujuannya itu adalah test kecepatan performa kode program yg dibuat
+Jadi ini bisa dikombinasikan antara unit test dan benchmark, bisa kedua duanya sekaligus
+utamanya sih hanya unit testing. Kalau mau liat kecepatan performanya maka tambahkan
+benchmark. Bukan saling menggantikan akan tetapi saling melengkapi.
+3. Benchmark di Go-Lang dilakukan dengan cara secara otomatis melakukan iterasi kode
+yang kita panggil berkali-kali sampai waktu tertentu.
+4. Kita tidak perlu menentukan jumlah iterasi dan lamanya, karena itu sudah diatur
+oleh testing.B bawaan dari testing package.
+
+testing.B
+1. testing.B adalah struct yang digunakan untuk melakukan benchmark.
+2. testing.B mirip dengan testing.T, terdapat function Fail(), FailNow(), Error(),
+Fatal() dan lain-lain.
+Walaupun jarang digunakan, karena tujuannya hanya melakukan benchmarking, bukan unit testing.
+3. Yang membedakan, ada beberapa attribute dan function tambahan yang digunakan
+untuk melakukan benchmark.
+4. Salah satunya adalah attribute N, ini digunakan untuk melakukan total iterasi
+sebuah benchmark.
+Jadi akan membuat sebuah perulangan (iterasi) sebanyak N tersebut.
+
+Cara Kerja Benchmark
+1. Cara kerja benchmark di Go-Lang sangat sederhana.
+2. Gimana kita hanya perlu membuat perulangan sejumlah N attribute.
+Membuat iterasi perulangan for dimulai dari 0 atau 1, sampai jumlah N attribute tersebut.
+3. Nanti secara otomatis Go-Lang akan melakukan eksekusi sejumlah perulangan yang
+ditentukan secara otomatis, lalu mendeteksi berapa lama proses tersebut berjalan, dan
+disimpulkan performa benchmark nya dalam satuan waktu.
+Jadi kita tidak perlua lagi melakukan benchmark secara manual, karena sudah otomatis
+dengan package testing benchmark tersebut.
