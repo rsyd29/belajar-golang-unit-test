@@ -1,0 +1,36 @@
+Membuat Benchmark
+
+Benchmark Function
+1. Mirip seperti unit test, untuk membuat benchmark pun, di Go-Lang sudah ditentukan
+nama function nya, harus diawali dengan kata Benchmark, misal BenchmarkHelloWorld.
+2. Selain itu, harus memiliki paramter (b *testing.B).
+3. Dan tidak boleh mengembalikan return value.
+4. Untuk nama file benchmark, sama seperti unit test, diakhiri dengan _test, misal
+hello_world_test.go
+
+// Kode: Membuat Benchmark Function
+func BenchmarkHelloWorld(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("World")
+	}
+}
+
+func BenchmarkHelloWorldRasyid(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Rasyid")
+	}
+}
+
+Menjalankan Benchmark
+1. Untuk menjalankan seluruh benchmark di module/package, kita bisa menggunakan
+perintah sama seperti test, namun ditambahkan parameter bench:
+go test -v -bench=.
+2. Jika kita hanya ingin menjalankan benchmark tanpa unit test, kita bisa gunakan
+perintah:
+go test -v -run=NotMatchUnitTest -bench=.
+3. Kode diatas selain menjalankan benchmark, akan menjalankan unit test juga, jika
+kita hanya ingin menjalankan benchmark tertentu, kita bisa gunakan perintah:
+go test -v -run=NotMatchUnitTest -bench=BenchmarkTest
+4. Jika kita menjalankan benchmark di root module/package dan ingin semua module/
+package dijalankan, kita bisa gunakan perintah:
+go test -v -bench=. ./...
