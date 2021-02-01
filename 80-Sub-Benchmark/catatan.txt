@@ -1,0 +1,23 @@
+Sub Benchmark
+1. Sama seperti testing.T, di testing.B juga kita bisa membuat sub benchmark
+menggunakan function Run().
+
+// Kode: Sub Benchmark
+func BenchmarkSub(b *testing.B) {
+	b.Run("World", func(b *testing.B) {
+		for i := 0; i < b.N; i++{
+			HelloWorld("World")
+		}
+	})
+	b.Run("Rasyid", func(b *testing.B) {
+		for i := 0; i < b.N; i++{
+			HelloWorld("Rasyid")
+		}
+	})
+}
+
+Menjalankan Hanya Sub Benchmark
+1. Saat kita menjalankan benchmark function, maka semua sub benchmark akan berjalan.
+2. Namun jika kita ingin menjalankan salah satu sub benchmark saja, kita bisa gunakan
+perintah:
+go test -v -run=TestTidakAda -bench=BenchmarkNama/NamaSub
