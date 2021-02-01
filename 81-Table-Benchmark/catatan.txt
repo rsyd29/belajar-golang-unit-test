@@ -1,0 +1,39 @@
+Table Benchmark
+1. Sama seperti di unit test, programmer Go-Lang terbiasa membuat table benchmark juga
+2. Ini digunakan agar kita bisa mudah melakukan performance test dengan kombinasi data
+berbeda-beda tanpa harus membuat banyak benchmark function.
+
+// Kode: Table Benchmark
+func BenchmarkTable (b *testing.B) {
+	benchmarks := []struct{
+		name string
+		request string
+	}{
+		{
+			name: "Budiman",
+			request: "Budiman",
+		},
+		{
+			name: "Rasyid",
+			request: "Rasyid",
+		},
+		{
+			name: "BudimanRasyidZainuddin",
+			request: "Budiman Rasyid Zainuddin",
+		},
+		{
+			name: "SubhanAminZainuddin",
+			request: "Subhan Amin Zainuddin",
+		},
+	}
+
+	for _,benchmark := range benchmarks {
+		b.Run(benchmark.name, func(b *testing.B){
+			HelloWorld(benchmark.request)
+		})
+	}
+}
+
+Jadi kalau ingin membuat benchmark dengan kombinasi data yang berbeda-beda lebih
+baik menggunakan table benchmark, jangan manual menggunakan sub benchmark.
+Buat dulu table benchmark, setelah itu jalankan sub benchmark-nya.
