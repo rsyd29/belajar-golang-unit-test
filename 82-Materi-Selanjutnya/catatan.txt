@@ -1,0 +1,10 @@
+Mulai sekarang ketika ingin membuat aplikasi, pastikan kita harus membuat unit test
+dan lebih baik lagi jika kita tambahkan benchmark juga, jadi jangan sampai kita tidak
+membuat unit test.
+
+Nextnya kita akan mempelajari ini
+
+Materi Selanjutnya
+1. Go-Lang Goroutines (Concurrency dan Parallel Programming) fitur yang paling menarik di Go-Lang.
+2. Go-Lang Database -> agar mengetahui cara membuat aplikasi go-lang yang berbasis database.
+3. Go-Lang Web -> golang banyak digunakan aplikasi website, ini optional apabila ingin masuk ke dunia web programming.
